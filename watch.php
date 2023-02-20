@@ -36,7 +36,8 @@
         while($row = $result->fetch_assoc()) {
             echo '
             <h2>' . $row['videotitle'] . ' <small>by ' . $row['author'] . '</small></h2>
-           <iframe height="360px" width="550px" src="embed?v=' . $row["filename"] . '"></iframe>
+           <!--<iframe height="360px" width="550px" src="embed?v=' . $row["filename"] . '"></iframe>-->
+           <video height="360px" width="550px" src="content/video/'.$row["filename"].'" controls></video>
                 ';
 
             $videoembed = '\
