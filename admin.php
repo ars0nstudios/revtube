@@ -7,6 +7,24 @@
   <body>
 <?php include './assets/mod/db.php';?>
 <?php include './assets/mod/header.php';?>
+<?php
+                    $statement = $mysqli->prepare("SELECT * FROM users WHERE username = ? ");
+                    $statement->bind_param("s", $_SESSION['profileuser3']);
+                    $statement->execute();
+                    $result = $statement->get_result();
+                    if($result->num_rows !== 0){
+                        while($row = $result->fetch_assoc()) {
+                        if ($row["is_admin"] !== 1) {
+                          echo('<script>
+      window.location.href = "index.php?msg=You are not allowed to view that page.";
+      </script>');
+                        }  
+                        }
+                    }
+                    else{
+                        echo "";
+                    }
+                ?>
     <div class="container">
  <div class="content">
         <div class="page-header">
