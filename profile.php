@@ -89,7 +89,7 @@
                 while($row = $result->fetch_assoc()) {
                   echo('
             <h3><h2>'.$row["username"].'</h2></h3>
-            <img style="width:225px;" src="/content/pfp/'.$row["id"].'">
+            <img style="height:225px;width:225px;" src="/content/pfp/'.$row["id"].'">
             '); }
             ?>
             <hr>

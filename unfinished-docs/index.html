@@ -1,0 +1,16 @@
+<h1>Revista Documentation</h1>
+<h2>Section 1 - How to install & basic setup</h2>
+<p>To setup Revista:
+    <ul>
+        <li>Clone the <a href="https://github.com/cosmixcode/revtube">GitHub Repo</a> into your webservers public_html or htdocs folder (on Linux, it's /var/www/html)</li>
+        <li>Make a new SQL database</li>
+        <li>Import the SQL file located at <code>sql/db.sql</code> into your database</li>
+        <li>Edit the file <code>assets/mod/db.php</code> to include your database credentials</li>
+    </ul>
+If all these steps were followed correctly, your instance should look like this:
+</p><img src="https://cdn.discordapp.com/attachments/922921777909342228/1076222537815560292/image.png" width="720px">
+<h2>Section 2 - Prepare for production environment</h2>
+<p>Now that your instance is setup, you might want to make some changes to your configuration file. To disable the debugging statistics header:
+    <ul><li>Open the file <code>assets/mod/db.php</code> and comment out or remove line 43 of the file.</li></ul>
+</p>
+<h1>THIS DOCUMENTATION IS NOT YET FINISHED</h1>

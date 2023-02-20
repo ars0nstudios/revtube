@@ -25,6 +25,7 @@
 				    echo "
 				    <div class='user'>
 				    	<div class='user-info'>
+						<div><img style='float: right;' height='48px' width='48px' src='content/pfp/".$row['id']."'></div>
 						    <div><a href='./profile.php?id=".$row['id']."'>".$row['username']."</a></div>
 						    <div><span class='black'>".$row['subscribers']."</span> subscribers</div>
 					    </div>
