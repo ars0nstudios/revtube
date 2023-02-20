@@ -66,33 +66,27 @@
       <hr>
       <h2>Announcements</h2>
       <p>This will put an alert on the frontpage. Friendly reminder that everyone can see what you say here.</p>
-     <form action="admin.php" enctype="multipart/form-data">
+     <form action="post" method="post">
       <textarea class="xxlarge" id="textarea2" name="textarea2" rows="3"></textarea>
       <br>
       <input type="submit" class="btn primary" value="Post announcement">
             </form>
-            <?php
-    if (isset($_POST['submit'])){
-        if(!isset($_SESSION['profileuser3'])) {
-            die("Login to post announcements...");
-        } else if(1 === 1)  {
-        $video = $_POST['videotitle'];
-        $user = $_POST['author'];
-        $statement = $mysqli->prepare("INSERT INTO announcements (content, author, date) VALUES (?, ?, now())");
-        $statement->bind_param("ssss", $content, $author);
-        $content = htmlspecialchars($_POST['textarea2']);
-        $author = htmlspecialchars($_SESSION['profileuser3']);
-        $statement->execute();
-        $statement->close();
-        echo('<script>
-      window.location.href = "index.php?msg=Your announcement has been posted!";
-      </script>');
-    } 
-     } 
-    ?>
       <p>Last 5 announcements</p>
             <ul class="unstyled">
-<li>ipod &bull; hello everyone i am your mother &bull; 2022-09-17 00:00:00
+<!-- <li>ipod &bull; hello everyone i am your mother &bull; 2022-09-17 00:00:00</li> -->
+<?php
+                    $statement = $mysqli->prepare("SELECT * FROM announcements LIMIT 5");
+                    $statement->execute();
+                    $result = $statement->get_result();
+                    if($result->num_rows !== 0){
+                        while($row = $result->fetch_assoc()) {
+                            echo '<li>' . $row['author'] . ' &bull; ' . $row['content'] . ' &bull; ' . $row['date'] . '</li>';
+                        }
+                    }
+                    else{
+                        echo "No announcements have been posted.";
+                    }
+                ?>
             </ul>
           </div>
           <div class="span4">
