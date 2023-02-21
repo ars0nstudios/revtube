@@ -83,17 +83,17 @@
       </table>
       <hr>
       <h2>Announcements</h2>
-      <p>This will put an alert on the frontpage. Friendly reminder that everyone can see what you say here.</p>
+      <p>This will put an alert on the top of every page. Friendly reminder that everyone can see what you say here. Abuse of this feature WILL result in loss of admin privileges.</p>
      <form action="post" method="post">
       <textarea class="xxlarge" id="textarea2" name="textarea2" rows="3"></textarea>
       <br>
-      <input type="submit" class="btn primary" value="Post announcement">
+      <input type="submit" class="yt-button primary" style="margin-top: 5px;" value="Post announcement">
             </form>
       <p>Last 5 announcements</p>
             <ul class="unstyled">
 <!-- <li>ipod &bull; hello everyone i am your mother &bull; 2022-09-17 00:00:00</li> -->
 <?php
-                    $statement = $mysqli->prepare("SELECT * FROM announcements LIMIT 5");
+                    $statement = $mysqli->prepare("SELECT * FROM announcements ORDER BY date DESC LIMIT 5");
                     $statement->execute();
                     $result = $statement->get_result();
                     if($result->num_rows !== 0){

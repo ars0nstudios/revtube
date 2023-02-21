@@ -4,10 +4,10 @@
     
     // debug mode
     $debug = "true";
-
+//connects to db
     $mysqli = new mysqli("localhost", "root", "", "revista");
     session_start();
-
+//gets user ID from usermame
     function idFromUser($nameuser){
     	global $mysqli;
     	$uid = 0;
@@ -22,7 +22,7 @@
 		$statement->close();
 		return $uid;
     }
-
+//gets profile picture from user ID
     function getUserPic($uid){
     	$userpic = (string)$uid;
 		if(file_exists("./content/pfp/".$userpic) !== TRUE){
@@ -31,7 +31,7 @@
 		return $userpic;
     }
     
-    
+   // determines if user is logged in 
    $loggedIn = isset($_SESSION['profileuser3']);
 
    if($debug == 'true') {
@@ -52,4 +52,7 @@
    echo "<center>DEBUG ONLY <span style='color: red;'>DO NOT USE IN PRODUCTION ENVIRONMENT</span> - Users: $usercount | Videos: $videocount | Comments: $commentcount | Running PHP $phpver </center>";
 	//echo '<br>revista is undergoing some changes please ignore any huge bugs as they most likely will be fixed soon after';
    }
+
+   //changes timezone
+   date_default_timezone_set("America/New_York");
 ?>
