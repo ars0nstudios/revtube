@@ -19,6 +19,11 @@
 			    $result = $statement->get_result();
 			    if($result->num_rows === 0) exit('No rows');
 			    while($row = $result->fetch_assoc()) {
+            if ($row["is_admin"] == 1) {
+              $adminlink="<li><a href=\"admin\">Admin Panel</a></li>";
+            } else {
+              $adminlink="";
+            }
 			        echo "<ul class=\"nav secondary-nav\">
             <li class=\"dropdown\" data-dropdown=\"dropdown\">
               <a href=\"#\" class=\"dropdown-toggle\"><img style='margin-bottom:-2px;' height='12px' width='12px' src='/content/pfp/".getUserPic($row["id"])."'> ".$row["username"]."</a>
@@ -29,6 +34,7 @@
                 <li><a href=\"upload\">Upload</a></li>
                 <li class=\"divider\"></li>
                 <li><a href=\"logout\">Logout ".$row["username"]."</a></li>
+                $adminlink
               </ul>
             </li>
           </ul><!--<br><div style=\"color: white\" class=\"pull-right\"><strong><a href=\"./profile?id=".$row["id"]."\">".$row["username"]."</a></strong> - <a href=\"./account\">Manage Account</a> - <a href=\"./alogout\">Logout</a></div>-->";
