@@ -37,6 +37,7 @@
                     $howmany = 0;
                     if($result->num_rows !== 0){
                         while($row = $result->fetch_assoc()) {
+                          $linkuploader = idFromUser($row['author']);
                             echo '
                             <div class="featured-video col-generic">
                                 <div class="video-thumbnail">
@@ -49,7 +50,7 @@
                                 </div>
                                 <div class="featured-video-info">
                                     <div class="video-title"><a href="/watch?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                                    <div class="video-author"><a href="/profile?id='.$row['author'].'">'.$row['author'].'</a></div>
+                                    <div class="video-author"><a href="/profile?id='.$linkuploader.'">'.$row['author'].'</a></div>
                                 </div>
                             </div>';
                             $howmany++;
@@ -75,6 +76,7 @@
                 $result = $statement->get_result();
                 if($result->num_rows !== 0){
                     while($row = $result->fetch_assoc()) {
+                      $linkuploader = idFromUser($row['author']);
                         echo '
                             <div class="video container-flex">
                                 <div class="col-1-3 video-thumbnail">
@@ -87,7 +89,7 @@
                                 </div>
                                 <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
                                 <div class="col-1-3 video-info">
-                                    <div><a href="profile.php?id='.$row['author'].'">'.$row['author'].'</a></div>
+                                    <div><a href="profile.php?id='.$linkuploader.'">'.$row['author'].'</a></div>
                                     <div><span>'.$row['views'].'</span> views</div>
                                     <div><span>'.$row['likes'].'</span> likes</div>
                                 </div>
