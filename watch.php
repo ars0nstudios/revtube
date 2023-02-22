@@ -165,7 +165,7 @@
         <input class="yt-button primary" type="submit" value="Comment" name="submit">
         <br>
         <br>
-        <small>Make sure to follow our <a href="/tos">Terms of Service</a></small>
+        <small>Make sure to follow the <a href="/tos">Community Guidelines</a></small>
     </form>
     <hr>
     <?php
