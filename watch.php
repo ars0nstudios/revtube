@@ -95,6 +95,7 @@
             $result = $stmt->get_result();
             if($result->num_rows === 0) exit('Fatal error');
             while($row = $result->fetch_assoc()) {
+              $vid = $row['vid'];
                 echo "<b>Share</b>";
                 echo "URL <input value=\"http://revtube.ml/watch.php?v=" . $row["vid"] . "\"><br>
                 Embed <input style=\"margin-right: 13px;\" value='<iframe style=\"border: 0px; overflow: hidden;\" src=\"http://revtube.ml/player/embed.php?id=" . $_GET['id'] . "\" height=\"360\" width=\"480\"></iframe>'>";
@@ -110,8 +111,17 @@
 </div>
 
         <?php
+        if(isset($_SESSION['views'.$vid.'']))
+        $_SESSION['views'.$vid.''] = $_SESSION['views'.$vid.'']+1;
+    else
+        $_SESSION['views'.$vid.'']=1;
+        //check if the user has already viewed the video
+        if ($_SESSION['views'.$vid.''] > 1) {
+        echo "";
+        } else {
         mysqli_query($mysqli, "UPDATE videos SET views = views+1 WHERE vid = '" . $videoid . "'");
         $stmt->close();
+        }
        // echo '<hr style="
 //    margin-top: 50px;
 // ">';
