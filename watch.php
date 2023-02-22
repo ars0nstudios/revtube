@@ -175,7 +175,9 @@
         $result = $stmt->get_result();
         if($result->num_rows === 0) echo('No comments.');
         while($row = $result->fetch_assoc()) {
-            echo "<div class='commenttitle'>" . $row['author'] . " (" . $row['date'] . ")</div>" . $row['comment'] . "<br><br>";
+          $authorpfp = idFromUser($row["author"]);
+          $humandate = time_elapsed_string(''.$row['date'].'');
+            echo "<div class='commenttitle'><img height='12px' width='12px' src='content/pfp/$authorpfp'>" . $row['author'] . " (" . $humandate . ")</div>" . $row['comment'] . "<br><br>";
         }
         $stmt->close();
     ?>

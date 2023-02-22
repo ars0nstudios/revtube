@@ -4,4 +4,6 @@ content/video/
 *.db
 content/pfp/
 !*content/pfp/default
+content/banner/
+!*content/banner/default
 assets/mod/db.php
