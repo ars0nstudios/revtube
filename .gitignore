@@ -4,3 +4,4 @@ content/video/
 *.db
 content/pfp/
 !*content/pfp/default
+assets/mod/db.php
