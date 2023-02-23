@@ -11,7 +11,7 @@
  <div class="content">
         <div class="page-header">
         <?php include './assets/mod/alert.php';?>
-          <h1>Terms of Service <small>Last updated December 28, 2021</small></h1>
+          <h1>Community Guidelines <small>Last updated December 28, 2021</small></h1>
         </div>
         <div class="row">
           <div class="span10">

@@ -58,7 +58,7 @@
                 $filename = basename($_FILES["fileToUpload"]["name"]);
                 $statement->execute();
                 $statement->close();
-                $webhookurl = "";
+                $webhookurl = $webhook;
                 $msg = "**$user** just uploaded **$video**";
                 $json_data = array ('content'=>"$msg");
                 $make_json = json_encode($json_data);

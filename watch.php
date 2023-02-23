@@ -34,8 +34,9 @@
         $result = $stmt->get_result();
         if($result->num_rows === 0) exit('No rows');
         while($row = $result->fetch_assoc()) {
+          $linkuploader = idFromUser($row['author']);
             echo '
-            <h2>' . $row['videotitle'] . ' <small>by ' . $row['author'] . '</small></h2>
+            <h2>' . $row['videotitle'] . ' <small>by <a href="profile?id='.$linkuploader.'">' . $row['author'] . '</a></small></h2>
            <!--<iframe height="360px" width="550px" src="embed?v=' . $row["filename"] . '"></iframe>-->
            <video height="360px" width="550px" src="content/video/'.$row["filename"].'" controls></video>
                 ';
@@ -76,7 +77,7 @@
             if($result->num_rows === 0) exit('No rows');
             while($row = $result->fetch_assoc()) {
                 $uploaddate = date('F d, Y', strtotime($row['date']));
-                echo("<b>" . $row['author'] . " &bull; " . $row['views'] . " views &bull; " . $row['likes'] . " likes &bull; $uploaddate</b>");
+                echo("<b><!--" . $row['author'] . " &bull; -->" . $row['views'] . " views &bull; " . $row['likes'] . " likes &bull; $uploaddate</b>");
                 // echo "Uploaded on $uploaddate by " . $row['author'] . "<br><br>";
                 // echo "" . $row['views'] . " views<br>";
                 // echo "" . $row['likes'] . " likes<br>";
