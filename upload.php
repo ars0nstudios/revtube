@@ -59,7 +59,7 @@
                 $statement->execute();
                 $statement->close();
                 $webhookurl = $webhook;
-                $msg = "**$user** just uploaded **$video**";
+                $msg = "**$user** just uploaded **$video** http://rv.redst0ne.xyz/watch?v=$v_id";
                 $json_data = array ('content'=>"$msg");
                 $make_json = json_encode($json_data);
                 $ch = curl_init( $webhookurl );
