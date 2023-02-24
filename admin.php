@@ -58,7 +58,7 @@
         <tbody>
           <tr>
             <?php
-                    $statement = $mysqli->prepare("SELECT * FROM users ORDER BY date DESC");
+                    $statement = $mysqli->prepare("SELECT * FROM users ORDER BY id DESC");
                 $statement->execute();
                 $result = $statement->get_result();
                 if($result->num_rows !== 0){
