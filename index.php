@@ -43,7 +43,7 @@
                                 <div class="video-thumbnail">
                                     <a href="watch.php?v=' . $row['vid'] . '">
                                         <video>
-                                            <source src="videos/' . $row['filename'] . '" type="video/mp4">
+                                            <source src="content/videos/' . $row['filename'] . '" type="video/mp4">
                                             Your browser does not support the video tag.
                                          </video>
                                     </a>
