@@ -10,7 +10,7 @@
     <meta name="description" content="just a small video site">
     <meta name="author" content="Redst0neTech, Cattskit">
 <?php
-$sitedown = true;
+$sitedown = false;
 if ($sitedown == true) {
   die("site is down right now sorry");
 }

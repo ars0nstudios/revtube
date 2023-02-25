@@ -13,7 +13,10 @@
         if(!isset($_SESSION['profileuser3'])) {
             die("Login to upload videos...");
         }
+        $v_id = randstr(11);
         $target_dir = "./content/video/";
+       // $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        rename("basename($_FILES['fileToUpload']['name'])","$v_id.mp4");
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         if(!is_dir($target_dir)){
             mkdir($target_dir);
@@ -49,7 +52,7 @@
                 function randstr($len, $charset = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-"){
                     return substr(str_shuffle($charset),0,$len);
                 }
-                $v_id = randstr(11);
+              //  $v_id = randstr(11);
                 $statement = $mysqli->prepare("INSERT INTO videos (videotitle, vid, description, author, filename, date) VALUES (?, ?, ?, ?, ?, now())");
                 $statement->bind_param("sssss", $videotitle, $v_id, $description, $author, $filename);
                 $videotitle = htmlspecialchars($_POST['videotitle']);
