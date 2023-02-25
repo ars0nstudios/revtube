@@ -17,7 +17,7 @@
             return substr(str_shuffle($charset),0,$len);
         }
         $v_id = randstr(11);
-        $target_dir = "./content/video/";
+        $target_dir = "./content/tmp/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         if(!is_dir($target_dir)){
             mkdir($target_dir);
@@ -48,8 +48,7 @@
             ";
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                $uploadfilething = basename($_FILES['fileToUpload']['name']);
-                rename("$uploadfilething","$v_id.mp4");
+                rename("$target_file","../videos/$v_id.mp4");
                 $video = $_POST['videotitle'];
                 $user = $_SESSION['profileuser3'];
               //  $v_id = randstr(11);
@@ -62,7 +61,7 @@
                 $statement->execute();
                 $statement->close();
                 $webhookurl = $webhook;
-                $msg = "**$user** just uploaded **$video** http://rv.redst0ne.xyz/watch?v=$v_id";
+                $msg = "**$user** just uploaded **$video**/n http://rv.redst0ne.xyz/watch?v=$v_id";
                 $json_data = array ('content'=>"$msg");
                 $make_json = json_encode($json_data);
                 $ch = curl_init( $webhookurl );
