@@ -178,7 +178,8 @@
         while($row = $result->fetch_assoc()) {
           $authorpfp = idFromUser($row["author"]);
           $humandate = time_elapsed_string(''.$row['date'].'');
-            echo "<div class='commenttitle'><img height='10px' width='10px' style='margin-right: 2px; margin-top: 2px;' src='content/pfp/$authorpfp'>" . $row['author'] . " (" . $humandate . ")</div>" . $row['comment'] . "<br><br>";
+          $linkcommenter = idFromUser($row['author']);
+            echo "<div class='commenttitle'><img height='10px' width='10px' style='margin-right: 2px; margin-top: 2px;' src='content/pfp/$authorpfp'><a href='profile?id=$linkcommenter'>" . $row['author'] . "</a> (" . $humandate . ")</div>" . $row['comment'] . "<br><br>";
         }
         $stmt->close();
     ?>
