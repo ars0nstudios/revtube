@@ -19,8 +19,6 @@
         $v_id = randstr(11);
         $target_dir = "./content/video/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-        $uploadfilething = basename($_FILES['fileToUpload']['name']);
-        rename("$uploadfilething","$v_id.mp4");
         if(!is_dir($target_dir)){
             mkdir($target_dir);
         }
@@ -50,6 +48,8 @@
             ";
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                $uploadfilething = basename($_FILES['fileToUpload']['name']);
+                rename("$uploadfilething","$v_id.mp4");
                 $video = $_POST['videotitle'];
                 $user = $_SESSION['profileuser3'];
               //  $v_id = randstr(11);
