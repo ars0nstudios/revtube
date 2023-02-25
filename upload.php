@@ -57,7 +57,7 @@
                 $videotitle = htmlspecialchars($_POST['videotitle']);
                 $description = str_replace(PHP_EOL, "<br>", htmlspecialchars($_POST['bio']));
                 $author = htmlspecialchars($_SESSION['profileuser3']);
-                $filename = basename($_FILES["fileToUpload"]["name"]);
+                $filename = "$v_id.mp4";
                 $statement->execute();
                 $statement->close();
                 $webhookurl = $webhook;
