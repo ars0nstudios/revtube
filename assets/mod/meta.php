@@ -9,7 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="just a small video site">
     <meta name="author" content="Redst0neTech, Cattskit">
-
+<?php
+$sitedown = true;
+if ($sitedown == true) {
+  die("site is down right now sorry");
+}
+?>
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
