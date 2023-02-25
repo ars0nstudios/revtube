@@ -1,4 +1,6 @@
 # Changelog
+## February 25, 2022
+Revista wasn't a....very good name. So it's been renamed back to the name that inspired it. Welcome back to VistaTube.
 ## February 18, 2022
 SkyTube has been rebranded to Revista! This comes with some improvements to code.
 ## February 16, 2022

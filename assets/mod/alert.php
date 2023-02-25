@@ -1,5 +1,5 @@
 <!-- <div class="alert-message warning">
-  <p><strong>Revista is in development. </strong>Please note, this is still unfinished.</p>
+  <p><strong>VistaTube is in development. </strong>Please note, this is still unfinished.</p>
 </div> -->
 <?php
                     include("assets/mod/time.php");

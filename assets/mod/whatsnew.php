@@ -9,5 +9,5 @@
 <li><del>2. upload button on header</del></li>
 <li><del>3. new video player</del></li>
 <li><del>4. featured videos</del></li>
-<li>5. better uploader<br><ul><li>partially done, randomized video IDs added</li></ul></li>
+<li>5. better uploader<br><ul><li>partially done, randomized video IDs added</li><li>also added: video files are renamed to [videoid].mp4 (this allows for creation of vistatube-dl)</li></ul></li>
             </ul>
