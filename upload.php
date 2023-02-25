@@ -16,7 +16,8 @@
         $v_id = randstr(11);
         $target_dir = "./content/video/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-        rename("$_FILES['fileToUpload']['name']","$v_id.mp4");
+        $uploadfilething = $_FILES['fileToUpload']['name'];
+        rename("$uploadfilething","$v_id.mp4");
         if(!is_dir($target_dir)){
             mkdir($target_dir);
         }
