@@ -109,7 +109,7 @@
         <div class="boxheader">
         <h3>Login</h3>
         </div>
-        <form method="post" action="login.php">
+        <form method="post" action="alogin.php">
         <label for="username">Username</label>
         <input type=text name=username>
         <label for="password">Password</label>
@@ -124,9 +124,10 @@
         <h3>What's New</h3>
         </div>
         <!-- <img src="cog.gif"> -->
-        <p><b>Porting Revid</b><br><small>Yes. I am porting Revid UI to VistaTube.</small></p>
+        <p><b>Porting Revid UI to VistaTube?!</b><br><small>Yes. I am porting Revid UI to VistaTube (which will become Revid).</small></p>
         <p><b>Join our Discord!</b><br><small>Report any bugs or issues to our Discord server (link in footer).</small></p>
         <p><b>revid balling</b><br><small>wtf revid balling</small></p>
+        <p><b>"wen eta site release"</b><br><small>i do NOT KNOW!!!</small></p>
     </div>
     <br>
     <div class="box">

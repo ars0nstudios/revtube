@@ -16,7 +16,7 @@
 </div>
     <?php
 if(!isset($_SESSION['profileuser3'])) {
-    echo '<div class="utility"><a href="signup.php">Register</a> | <a href="#">Login</a> | <a href="#">Help</a> | <a href="#">Settings</a><!-- | <a href="#" class="adminlink">Admin</a>--></div>';
+    echo '<div class="utility"><a href="aregister">Register</a> | <a href="alogin">Login</a> | <a href="#">Help</a> | <a href="#">Settings</a><!-- | <a href="#" class="adminlink">Admin</a>--></div>';
   } else {
     $statement = $mysqli->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
             $statement->bind_param("s", $_SESSION['profileuser3']);

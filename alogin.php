@@ -6,6 +6,7 @@
 
   <body>
 <?php include './assets/mod/db.php';?>
+<div class="container">
     <?php include("./assets/mod/header.php");?>
     <div class="container-flex"> 
                             <?php
@@ -79,10 +80,8 @@
                 </form>
             </div>
         </div>
-        <!--<div class="col-1-2">
-            <h2>Welcome to SkyTube!</h2>
-        </div>-->
     </div>
+                            </div>
     <hr>
     <?php include("./assets/mod/footer.php") ?>
 </body>

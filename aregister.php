@@ -6,10 +6,55 @@
 
   <body>
 <?php include './assets/mod/db.php';?>
+<div class="container">
     <?php include("./assets/mod/header.php"); ?>
-    <div class="container-flex">
-            <hr>
-            <?php
+<div class="leftsignup">
+<h2>Create Your Revid Account</h2>
+<small>It's free and easy. Just fill out the account info below. <span style="color: red;">(All fields required)</span></small>
+<div class="accdetailscreate">
+    <form method="POST" action="signup.php">
+    <!--    <div class="inputgroup">
+        <label for="email">Email Address:</label>
+        <input type="text" name="email" id="email">
+</div> -->
+        <br>
+        <div class="inputgroup">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+</div>
+<br>
+<div class="inputgroup">
+        <label for="username">Password:</label>
+        <input type="password" name="password" id="password">
+</div>
+<br>
+<div class="inputgroup">
+        <label for="username">Confirm Password:</label>
+        <input type="password" name="confirm_password" id="confirm_password">
+</div>
+<input type="submit" value="Sign Up" style="margin:13px;">
+</div>
+<?php //echo $username_err; ?>
+<?php //echo $password_err; ?>
+<?php //echo $confirm_password_err; ?>
+</form>
+<!-- <h3>revid <img src="staff.png" style="border-radius: 5px; margin-bottom: -1px;" width="16px"></h3> -->
+</div>
+<div class="rightsignup">
+    <h2>What is Revid?</h2>
+    Revid is the home for video online:
+        <ul>
+        <li><b>Watch</b> millions of videos</li>
+        <li><b>Share favorites</b> with friends and family</li>
+        <li><b>Connect with other users</b> who share your interests</li>
+        <li><b>Upload your videos</b> to a worldwide audience</li>
+    </ul>
+    <!-- <b>Sign up now to join the Revid community!</b> -->
+</div>
+</div>
+<br><br>
+<?php include("./assets/mod/footer.php"); ?>
+<?php
             if (!empty($_POST)){
                 $sql = "SELECT `username` FROM `users` WHERE `username`='". htmlspecialchars($_POST['name']) ."'";
                 $result = $mysqli->query($sql);
@@ -43,40 +88,3 @@
                 }
             }
             ?>
-        </div>
-       <center><div class="col-1-2" style=".labelcenter {textalign: center;}">
-            <h3>Create Your Channel</h1>
-            <p>It's free and easy. Just fill out the signup form below. <span class="red">All fields are required!</span></p>
-            <div class="card blue">
-                <form method='post' action=''>
-                    <div class="input-group">
-                      <!--  <label for="username">Username: </label>-->
-                        <input type="text" name="name" pattern="[^()/><\][\\\x22,;|]+" placeholder="Channel Name" required>
-                    </div>
-                    <br>
-                    <div class="input-group">
-                   <!--    <label class="labelcenter" for="email">Email: </label>-->
-                        <input type="email" name="email" placeholder="Email" required>
-                    </div>
-                    <br>
-                    <div class="input-group">
-                        <!--<label for="password">Password: </label>-->
-                        <input type="password" name="password" placeholder="Password" required>
-                    </div>
-                    <div class="input-group">
-                        <div></div>
-                        <br>
-                        <div><button type="submit" class="btn" name="reg_user" class="button">Create Channel</button></div>
-                    </div>
-                </form>
-            </div>
-            <div class="card message">
-                Never give your password to a stranger! You could get hacked, or worse.
-            </div>
-        </div>
-    </div></center> 
-    <hr>
-    <?php include("./assets/mod/footer.php") ?>
-</body>
-</html>
-<?php $mysqli->close();?>
