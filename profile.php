@@ -20,8 +20,8 @@
         <div class="container-flex">
             <div class="col-2-3">
                 <?php
-                    $statement = $mysqli->prepare("SELECT `username`, `id`, `subscribers` FROM `users` WHERE `id` = ? LIMIT 1");
-                    $statement->bind_param("i", $_GET['id']);
+                    $statement = $mysqli->prepare("SELECT `username`, `id`, `subscribers` FROM `users` WHERE `username` = ? LIMIT 1");
+                    $statement->bind_param("s", $_GET['user']);
                     $statement->execute();
                     $result = $statement->get_result();
                     while($row = $result->fetch_assoc()) {
@@ -82,8 +82,8 @@
           </div>
           <div class="span4">
           <?php
-                $statement = $mysqli->prepare("SELECT * FROM `users` WHERE `id` = ? LIMIT 1");
-                $statement->bind_param("i", $_GET['id']);
+                $statement = $mysqli->prepare("SELECT * FROM `users` WHERE `username` = ? LIMIT 1");
+                $statement->bind_param("s", $_GET['user']);
                 $statement->execute();
                 $result = $statement->get_result();
                 while($row = $result->fetch_assoc()) {
@@ -95,8 +95,8 @@
             <hr>
             <h3>Bio</h3>
                             <?php
-                $statement = $mysqli->prepare("SELECT `description`, `date` FROM `users` WHERE `id` = ? LIMIT 1");
-                $statement->bind_param("i", $_GET['id']);
+                $statement = $mysqli->prepare("SELECT `description`, `date` FROM `users` WHERE `username` = ? LIMIT 1");
+                $statement->bind_param("s", $_GET['user']);
                 $statement->execute();
                 $result = $statement->get_result();
                 while($row = $result->fetch_assoc()) {

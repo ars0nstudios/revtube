@@ -6,120 +6,152 @@
 
   <body>
 <?php include './assets/mod/db.php';?>
-<?php include './assets/mod/header.php';?>
     <div class="container">
+    <?php include './assets/mod/header.php';?>
  <div class="content">
-        <div class="page-header">
-          <?php
-      if(empty($_GET["msg"])) {
-        echo "<p style='display:none;'>no</p>";
-      } else if($_GET["msg"] === " ") {
-        echo "<p style='display:none;'>no</p>";
-      } else { echo '
-          <div class="alert-message success">
-        <p>'.$_GET["msg"].'</p>
-      </div>';
-    }
-          ?>
-            <?php include './assets/mod/alert.php'?>
-          <h1>Uploads <small><div id="clockbox"></div></small></h1>
-          <?php include './assets/mod/todaysdate.php'; ?>
+        <!--end header-->
+<div class="leftside">
+<h2>Promoted Videos</p></h2>
+
+<div class="fvidcont">
+
+<div class="fvid">
+<img src="default.png" class="vimg90">
+<br>
+<a href="#">video</a>
+<br>
+<a href="#" style="color: darkgray;"><small>revid</small></a>
+</div>
+
+<div class="fvid">
+<img src="default.png" class="vimg90">
+<br>
+<a href="#">video</a>
+<br>
+<a href="#" style="color: darkgray;"><small>revid</small></a>
+</div>
+
+<div class="fvid">
+<img src="default.png" class="vimg90">
+<br>
+<a href="#">video</a>
+<br>
+<a href="#" style="color: darkgray;"><small>revid</small></a>
+</div>
+
+<div class="fvid">
+<img src="default.png" class="vimg90">
+<br>
+<a href="#">video</a>
+<br>
+<a href="#" style="color: darkgray;"><small>revid</small></a>
+</div>
+
+<div class="fvid">
+<img src="default.png" class="vimg90">
+<br>
+<a href="#">video</a>
+<br>
+<a href="#" style="color: darkgray;"><small>revid</small></a>
+</div>
+
+</div>
+
+<h2>Featured Videos</h2>
+<div class="listing">
+<img src="default.png" class="vimg120">
+<div class="listingtext">
+<a href="#" style="">this is a video</a>
+<br>
+<small>This is a description.</small>
+<br><br>
+<small style="vertical-align: bottom;">Views: <span href="#" style="color: gray;">100</span></small><br>
+<small style="vertical-align: bottom;">From: <a href="#" style="color: gray;">revid</a></small>
+</div>
+</div>
+<br>
+<div class="listing">
+<img src="default.png" class="vimg120">
+<div class="listingtext">
+<a href="#" style="">this is a video</a>
+<br>
+<small>This is a description.</small>
+<br><br>
+<small style="vertical-align: bottom;">Views: <span href="#" style="color: gray;">100</span></small><br>
+<small style="vertical-align: bottom;">From: <a href="user?n=revid" style="color: gray;">revid</a></small>
+</div>
+</div>
+<br>
+<div class="listing">
+<img src="default.png" class="vimg120">
+<div class="listingtext">
+<a href="#" style="">this is a video</a>
+<br>
+<small>This is a description.</small>
+<br><br>
+<small style="vertical-align: bottom;">Views: <span href="#" style="color: gray;">100</span></small><br>
+<small style="vertical-align: bottom;">From: <a href="#" style="color: gray;">revid</a></small>
+</div>
+</div>
+
+
+
+
+</div>
+<div class="rightside">
+    <br>
+    <?php
+      if(isset($_SESSION["profileuser3"])) {
+       // echo "";
+      } else if(!isset($_SESSION["profileuser3"])) {
+        echo '
+    <div class="box">
+        <div class="boxheader">
+        <h3>Login</h3>
         </div>
-        <div class="row">
-          <div class="span10">
-          <h3>Featured Videos</h3>
-            <div class="featured-videos container-flex">
-                <?php
-                    $statement = $mysqli->prepare("SELECT * FROM videos WHERE featured = TRUE LIMIT 4"); //sexy variable names
-                    //$statement->bind_param("s", $_POST['fr']);
-                    $statement->execute();
-                    $result = $statement->get_result();
-                    $howmany = 0;
-                    if($result->num_rows !== 0){
-                        while($row = $result->fetch_assoc()) {
-                          $linkuploader = idFromUser($row['author']);
-                            echo '
-                            <div class="featured-video col-generic">
-                                <div class="video-thumbnail">
-                                    <a href="watch.php?v=' . $row['vid'] . '">
-                                        <video>
-                                            <source src="content/videos/' . $row['filename'] . '" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                         </video>
-                                    </a>
-                                </div>
-                                <div class="featured-video-info">
-                                    <div class="video-title"><a href="/watch?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                                    <div class="video-author"><a href="/profile?id='.$linkuploader.'">'.$row['author'].'</a></div>
-                                </div>
-                            </div>';
-                            $howmany++;
-                        }
-                        if($howmany !== 4){
-                            for($i = 4-$howmany; $i > 3; $i++){
-                                echo("the j");
-                            }
-                        }
-                    }
-                    else{
-                        echo "It seems there are no videos here. Perhaps one of your videos could be here?";
-                    }
-                ?>
-            </div>
-            <br>
-            <br>
-            <h2>Latest Uploads</h2>
-            <?php
-                    $statement = $mysqli->prepare("SELECT * FROM videos ORDER BY date DESC");
-                //$statement->bind_param("s", $_POST['fr']); i have no idea what this is but we don't need it
-                $statement->execute();
-                $result = $statement->get_result();
-                if($result->num_rows !== 0){
-                    while($row = $result->fetch_assoc()) {
-                      $linkuploader = idFromUser($row['author']);
-                        echo '
-                            <div class="video container-flex">
-                                <div class="col-1-3 video-thumbnail">
-                                <a href="watch.php?v='.$row['vid'].'">
-                                    <video>
-                                        <source src="content/video/'.$row['filename'].'" type="video/mp4">
-                                        Thumbnail could not be loaded :(
-                                    </video> 
-                                </a>
-                                </div>
-                                <div class="col-1-3 video-title"><a href="watch.php?v='.$row['vid'].'">'.$row['videotitle'].'</a></div>
-                                <div class="col-1-3 video-info">
-                                    <div><a href="profile.php?id='.$linkuploader.'">'.$row['author'].'</a></div>
-                                    <div><span>'.$row['views'].'</span> views</div>
-                                    <div><span>'.$row['likes'].'</span> likes</div>
-                                </div>
-                            </div>
-                            <hr>';
-                    }
-                }
-                else{
-                    echo "There are no videos uploaded to this instance.";
-                }
-                $statement->close();
-            ?>
-            <ul class="unstyled">
-
-            </ul>
-          </div>
-          <div class="span4">
-            <?php include './assets/mod/whatsnew.php'; ?>
-            <!--<input class="input" type="text" placeholder="Username">
-            <br>
-            <input class="input" type="password" placeholder="Password">
-            <br>
-            <button class="btn" type="submit">login</button>-->
-          </div>
+        <form method="post" action="login.php">
+        <label for="username">Username</label>
+        <input type=text name=username>
+        <label for="password">Password</label>
+        <input type=password name=password>
+        <input type="submit" value="Login" style="float: right;">   
+</form>  
+    </div>
+    <br>'; }
+    ?>
+    <div class="box">
+        <div class="boxheader">
+        <h3>What's New</h3>
         </div>
-      </div>
-
-      <?php include './assets/mod/footer.php'; ?>
-
-    </div> <!-- /container -->
+        <!-- <img src="cog.gif"> -->
+        <p><b>Porting Revid</b><br><small>Yes. I am porting Revid UI to VistaTube.</small></p>
+        <p><b>Join our Discord!</b><br><small>Report any bugs or issues to our Discord server (link in footer).</small></p>
+        <p><b>revid balling</b><br><small>wtf revid balling</small></p>
+    </div>
+    <br>
+    <div class="box">
+        <div class="boxheader">
+        <h3>Blog</h3>
+        </div>
+        <!-- <img src="cog.gif"> -->
+        <p><b>No posts</b><br><small>Check back later.</small></p>
+  </div>
+    <br>
+    <div class="box">
+        <div class="boxheader">
+        <h3>Featured Videos</h3>
+        </div>
+        <div class="listing">
+<img src="default.png" style="width:38px;float: right;margin-left:10px;">
+<div class="listingtext">
+<a href="#" style="">this is a video</a>
+<br>
+<small>description...</small>
+</div>
+</div>
+</div>
+</div>
+<?php include("./assets/mod/footer.php"); ?> <!-- /container -->
 
   </body>
 </html>

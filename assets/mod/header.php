@@ -1,58 +1,34 @@
-    <div class="topbar">
-      <div class="fill">
-        <div class="container">
-          <a class="brand logost" href="/"><strong>VistaTube</strong><!--<img src="./assets/navlogo.png" height="17px" width="59px">--></a>
-          <ul class="nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/videos">Videos</a></li>
-            <li><a href="/channels">Channels</a></li>
-            <li><a href="/community">Community</a></li>
-           <!-- <li><a href="/upload">Upload</a></li> -->
-          </ul>
-          	<?php
-      if(!$loggedIn) {
-        echo '<ul class="nav secondary-nav"><li><strong><a class="yt-button dark" href="aregister.php">Sign Up</a></li> <li><a class="yt-button dark" href="alogin.php">Login</a></strong></li></ul>';
-      } else {
-        $statement = $mysqli->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
-			    $statement->bind_param("s", $_SESSION['profileuser3']);
-			    $statement->execute();
-			    $result = $statement->get_result();
-			    if($result->num_rows === 0) exit('No rows');
-			    while($row = $result->fetch_assoc()) {
-            if ($row["is_admin"] == 1) {
-              $adminlink="<li><a href=\"admin\">Admin Panel</a></li>";
-            } else {
-              $adminlink="";
+<div class="header">
+    <a href="/"><img src="./assets/img/logo.png" width="193.5px" style="margin-bottom: 10px;"></a>
+    <br>
+    <!-- <a class="navbutton" href="/"></a>
+    <a class="navbutton" href="#"></a>
+    <a class="navbutton" href="#"></a>
+    <a class="navbutton uploadbutton" href="#"></a>
+    <a class="navbutton adminbutton" href="#">Admin</a> -->
+    <a href="#" style="font-size: 15px; font-weight: bolder;margin-top: -30px;" class="uploadbutton">Upload</a>
+    <div class="bar">
+        <a class="baritem" href="/"><span class="baritemtext">Home</span></a>
+        <a class="baritem" href="/videos"><span class="baritemtext">Videos</span></a>
+        <a class="baritem" href="/channels"><span class="baritemtext">Channels</span></a>
+        <a class="baritem" href="#"><span class="baritemtext">Community</span></a>
+        <a class="baritem adminbutton" href="#"><span class="baritemtext">Admin</span></a>
+</div>
+    <?php
+if(!isset($_SESSION['profileuser3'])) {
+    echo '<div class="utility"><a href="signup.php">Register</a> | <a href="#">Login</a> | <a href="#">Help</a> | <a href="#">Settings</a><!-- | <a href="#" class="adminlink">Admin</a>--></div>';
+  } else {
+    $statement = $mysqli->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
+            $statement->bind_param("s", $_SESSION['profileuser3']);
+            $statement->execute();
+            $result = $statement->get_result();
+            if($result->num_rows === 0) echo('Uh oh, something is wrong with your session:<br> The logged in user couldn&#39t be found.');
+            while($row = $result->fetch_assoc()) {
+                echo '<div class="utility"><b>Hello, <a href="/user/'.$_SESSION["profileuser3"].'">'.$_SESSION["profileuser3"].'</a>!</b> | <a href="#">My Account</a> | <a href="#">Help</a> | <a href="/logout">Log Out</a><!-- | <a href="#" class="adminlink">Admin</a>--></div>';
             }
-			        echo "<ul class=\"nav secondary-nav\">
-            <li class=\"dropdown\" data-dropdown=\"dropdown\">
-              <a href=\"#\" class=\"dropdown-toggle\"><img style='margin-bottom:-2px;' height='12px' width='12px' src='/content/pfp/".getUserPic($row["id"])."'> ".$row["username"]."</a>
-              <ul class=\"dropdown-menu\">
-              <li></li>
-                <li><a href=\"./profile?id=".$row["id"]."\">Your Channel</a></li>
-                <li><a href=\"account\">Account Settings</a></li>
-                <li><a href=\"upload\">Upload</a></li>
-                <li class=\"divider\"></li>
-                <li><a href=\"logout\">Logout ".$row["username"]."</a></li>
-                $adminlink
-              </ul>
-            </li>
-          </ul><!--<br><div style=\"color: white\" class=\"pull-right\"><strong><a href=\"./profile?id=".$row["id"]."\">".$row["username"]."</a></strong> - <a href=\"./account\">Manage Account</a> - <a href=\"./alogout\">Logout</a></div>-->";
-			    }
-			    $statement->close();
-      }
-    ?>
-          <!--<form action="" class="pull-right">
-            <input class="input-small" type="text" placeholder="Username">
-            <input class="input-small" type="email" placeholder="Email">
-            <input class="input-small" type="password" placeholder="Password">
-            <button class="btn" type="submit">login</button>-->
-          </form>
-        </div>
-      </div>
-    </div>
-    <script>
-   $(function dropdown(){
-      $('#topbar').dropdown()
-   }); 
-</script>
+            $statement->close();
+  }
+  ?>
+    <form class="search"><input type="text" placeholder="Search for videos"><input type="submit" value="Search"></form>
+</div>
+<?php include("alert.php");?>
