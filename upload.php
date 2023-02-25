@@ -48,7 +48,7 @@
             ";
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                rename("$target_file", "content/videos/$v_id.mp4");
+                rename("$target_file", "content/video/$v_id.mp4");
                 $video = $_POST['videotitle'];
                 $user = $_SESSION['profileuser3'];
               //  $v_id = randstr(11);
