@@ -1,6 +1,6 @@
 # Changelog
 ## February 25, 2022
-Revista wasn't a....very good name. So it's been renamed back to the name that inspired it. Welcome back to VistaTube.
+Revista is going back to the name Revid, and this comes with a old-YouTube inspired layout.
 ## February 18, 2022
 SkyTube has been rebranded to Revista! This comes with some improvements to code.
 ## February 16, 2022
