@@ -1,7 +1,7 @@
     <div class="topbar">
       <div class="fill">
         <div class="container">
-          <a class="brand logost" href="/"><strong>VistaTube</strong><!--<img src="./assets/navlogo.png" height="17px" width="59px">--></a>
+          <a class="brand logost" href="/"><strong>Revid</strong><!--<img src="./assets/navlogo.png" height="17px" width="59px">--></a>
           <ul class="nav">
             <li><a href="/">Home</a></li>
             <li><a href="/videos">Videos</a></li>
