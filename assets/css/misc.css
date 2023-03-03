@@ -91,10 +91,10 @@ video {
   background-size: auto 100%;
   animation: animatedBackground 65s linear infinite alternate;
   background-image: url(assets/skylinewhite.png);
-background: -moz-linear-gradient(top,  rgba(20,0,150,1) 0%, rgba(16,0,122,1) 100%);
+/* background: -moz-linear-gradient(top,  rgba(20,0,150,1) 0%, rgba(16,0,122,1) 100%);
 background: -webkit-linear-gradient(top,  rgba(20,0,150,1) 0%,rgba(16,0,122,1) 100%);
 background: linear-gradient(to bottom,  rgba(20,0,150,1) 0%,rgba(16,0,122,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#140096', endColorstr='#10007a',GradientType=0 );
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#140096', endColorstr='#10007a',GradientType=0 ); */
 }
 .page-alert {
 	width: 820px;
