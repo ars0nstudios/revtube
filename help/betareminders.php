@@ -17,7 +17,7 @@
           <div class="span10">
             <h2>What <em>isn't</em> finished?</h2>
             <ul class="unstyled">
-<li>Likes and subscribing are NOT yet implemented. Do not go complain to the devs about these things.<!--<br>Additionally, view counts aren't that accurate yet.--> <em>(fixed)</em></li>
+<li>Likes and subscribing are NOT yet implemented. Do not go complain to the devs about these things.<del><br>Additionally, view counts aren't that accurate yet.</del> <em>(fixed)</em></li>
 </ul>
             <h2>What <em>is</em> finished?</h2>
             <ul class="unstyled">
