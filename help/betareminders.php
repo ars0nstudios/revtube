@@ -11,7 +11,7 @@
  <div class="content">
         <div class="page-header">
         <?php include '../assets/mod/alert.php';?>
-          <h1><small>Help / </small>Revista Public Beta <small>Last updated February 21, 2023</small></h1>
+          <h1><small>Help / </small>Revista Public Beta <small>Last updated March 6, 2023</small></h1>
         </div>
         <div class="row">
           <div class="span10">
