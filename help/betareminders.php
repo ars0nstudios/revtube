@@ -24,7 +24,7 @@
                 <li>Most basic functions, such as video uploading, commenting, profile pictures, profile editing, account login and creation are all finished. Find any bugs? Tell us on our Discord server (redst0ne.xyz/discord)</li>
                 </ul>
                 <h2>I want [insert feature] and it isn't added!</h2>
-                <ul class="unstyled"><li>If it's one of the things gone over at the beginning of this article, do not bother asking us. We'll probably get to it soon. If it isn't, you can tell me on Discord, Twitter (@asphaltk1cker), or on GitHub (jkosixtyfour).</li></ul>
+                <ul class="unstyled"><li>If it's one of the things gone over at the beginning of this article, do not bother asking us. We'll probably get to it soon. If it isn't, you can tell me on Discord, Twitter (@asphaltk1cker or @revidpw), or on GitHub (jkosixtyfour).</li></ul>
                     <h2>I want to help!</h2>
                 <ul class="unstyled"><li>Great! You can make any changes desired and create a pull request on our <a href="//github.com/cosmixcode/revtube">GitHub repo</a>.</li></ul>
           </div>
