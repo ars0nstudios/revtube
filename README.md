@@ -1,5 +1,5 @@
 # clipIt: semi-2013 edition
-*UI formerly maintaned by Cattskit, now maintained by jkosixtyfour/ky-1.*
+*UI formerly maintaned by puretall, now maintained by jkosixtyfour/ky-1.*
 
 clipIt (formerly RevTube/VistaTube) is a video <!--(with audio uploading a feature that was going to be added)--> sharing site designed as an alternative to YouTube and similar sites.
 *Name used with the permission of Chaziz.*
@@ -13,4 +13,4 @@ clipIt is currently in development, so we do not have a public instance at this 
 ## April 28, 2023
 Semi-2013 is in a somewhat complete state.
 
-*To see every update, view the full [changelog](https://github.com/cosmixcode/revtube/blob/semi-2013/changelog.md).*
+*To see every update, view the full [changelog](https://github.com/catrilldev/revtube/blob/semi-2013/changelog.md).*
